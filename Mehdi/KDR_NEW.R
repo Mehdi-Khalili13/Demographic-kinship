@@ -11,10 +11,24 @@
 #   6) Combined young + old plot
 # ============================================================
 
-df<-read_excel("C:/Users/m.khalili/Desktop/japanpop.xlsx", sheet = "1")
+#install.packages("kinship2")
+library(readxl)
+library(plyr)
 library(dplyr)
+library(tidyverse)
+library(data.table)
+library(ggplot2)
 library(tidyr)
+library(writexl)
+library(gganimate)
+library(devtools)
+library(DemoKin)
+library(fields)
 library(stringr)
+
+
+
+df<-read_excel("C:/Users/m.khalili/Desktop/japanpop.xlsx", sheet = "1")
 
 female_population_5year <- df %>%
   
@@ -94,6 +108,9 @@ write.csv(
   "C:/Users/m.khalili/Desktop/japan.csv",
   row.names = FALSE
 )
+
+
+
 
 
 YOUNG_MAX <- 14
@@ -1152,67 +1169,6 @@ pop_data <- pop_data |>
       COUNTRY_CODE
   )
 
-
-# ============================================================
-# 13. Check periods
-# ============================================================
-
-cat(
-  "\nKIN PERIODS:\n"
-)
-
-print(
-  sort(
-    unique(
-      kin_data$year
-    )
-  )
-)
-
-
-cat(
-  "\nPOPULATION PERIODS:\n"
-)
-
-print(
-  sort(
-    unique(
-      pop_data$year
-    )
-  )
-)
-
-
-# ============================================================
-# 14. Check whether kin and population years match
-# ============================================================
-
-missing_pop_years <- setdiff(
-  
-  unique(
-    kin_data$year
-  ),
-  
-  unique(
-    pop_data$year
-  )
-)
-
-
-if (
-  length(
-    missing_pop_years
-  ) > 0
-) {
-  
-  warning(
-    "These kin periods do not exist in population data: ",
-    paste(
-      missing_pop_years,
-      collapse = ", "
-    )
-  )
-}
 
 
 # ============================================================
