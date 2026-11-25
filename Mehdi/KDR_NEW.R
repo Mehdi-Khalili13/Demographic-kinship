@@ -118,13 +118,13 @@ WORK_MIN  <- 15
 WORK_MAX  <- 64
 OLD_MIN   <- 65
 
-COUNTRY_CODE <- "JPN"
+COUNTRY_CODE <- "IRN"
 
 # If you want only one kin network in the plots:
 NETWORK_SELECTED <- "collateral"
 
 # Change these paths
-KIN_FILE <- "C:/Users/m.khalili/Desktop/table_data_desagg.csv"
+KIN_FILE <- "C:/Users/m.khalili/Desktop/temporary/kinship/table_data_desagg.csv"
 POP_FILE <- "C:/Users/m.khalili/Desktop/jjj.csv"
 
 
